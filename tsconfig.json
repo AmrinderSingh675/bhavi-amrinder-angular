@@ -11,7 +11,6 @@
     "moduleResolution": "bundler",
 
     "strict": true,
-    "ignoreDeprecations": "6.0",
     "paths": {
       "@app/*": ["src/app/*"]
     }
