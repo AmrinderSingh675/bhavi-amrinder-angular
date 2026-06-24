@@ -1,17 +1,32 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { UserModel } from "../models/user.model";
-import { environment } from "../../../../environments/environment";
+import { Injectable } from '@angular/core';
+import { API_ENDPOINTS } from '@app/core/services/apiendpoints.service';
+import { BaseApiService } from '@app/core/services/base-api.service';
+import { UserModel } from '../models/user.model';
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private api: BaseApiService) {}
 
   getUsers() {
-    return this.http.get<UserModel[]>(
-       `${environment.apiUrl}/users`
-    );
+    return this.api.get<UserModel[]>(API_ENDPOINTS.USERS.GET_ALL);
+  }
+
+  getUserById(id: number) {
+    return this.api.get<UserModel>(API_ENDPOINTS.USERS.GET_BY_ID(id));
+  }
+
+  createUser(payload: UserModel) {
+    return this.api.post(API_ENDPOINTS.USERS.CREATE, payload);
+  }
+
+  updateUser(id: number, payload: any) {
+    return this.api.put(API_ENDPOINTS.USERS.UPDATE(id), payload);
+  }
+
+  deleteUser(id: number) {
+    return this.api.delete(API_ENDPOINTS.USERS.DELETE(id));
   }
 }

@@ -1,9 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html'
 })
 export class LoaderComponent {
-  @Input() loading = false;
+
+  //isLoading$;
+  constructor() {
+     //this.isLoading$ = this.loader.loading$;
+  }
 }

@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+
     "rootDir": "./src",
     "outDir": "./dist/out-tsc",
 
@@ -9,9 +11,9 @@
     "moduleResolution": "bundler",
 
     "strict": true,
-
+    "ignoreDeprecations": "6.0",
     "paths": {
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["src/app/*"]
     }
   }
 }

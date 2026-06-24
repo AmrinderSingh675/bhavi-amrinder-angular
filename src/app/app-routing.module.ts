@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { authGuard } from './core/guards/auth.guard';
-
 import { AuthLayoutComponent } from './shared/components/authlayout/authlayout.component';
 import { MainLayoutComponent } from './shared/components/mainlayout/mainlayout.component';
 
 const routes: Routes = [
-
   {
     path: '',
     redirectTo: 'login',
